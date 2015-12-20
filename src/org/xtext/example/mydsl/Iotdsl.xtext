@@ -1,0 +1,84 @@
+grammar org.xtext.example.mydsl.Iotdsl with org.eclipse.xtext.common.Terminals
+
+generate iotdsl "http://www.xtext.org/example/mydsl/Iotdsl"
+
+/*Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';*/
+Iot:
+	devices+=Device*;
+
+Device:
+	'device' name=ID ('extends' superType=[Device])?
+	attributes=Attribute
+	states+=State*
+	('events'
+	events+=Event+
+	'end')?
+	transitions+=Transition*
+	'end';
+
+Attribute:
+	typeName=('name') tag=ID ('=' value=STRING)?;
+
+Event:
+	'event' name=ID;
+
+State:
+	'state' name=ID
+		elements += Action*
+	'end';
+
+Transition:
+	'transition' name=ID
+	event=[Event] '=>' state=[State]
+	'end';
+
+Action:
+	Expression | Variable;
+			
+Variable:
+ 	name=ID '=' expression=Expression;
+ 	
+Expression:
+	Or | IfStatement;
+
+Or returns Expression:
+	And ({Or.left = current} "||" right = And)*;
+	
+And returns Expression:
+	Equality ({And.left = current} "&&" right=Equality)*;
+	
+IfStatement:
+	'if' '(' expression=Expression ')' thenBlock=IfBlock
+	(=>'else' elseBlock=IfBlock)?
+;
+
+IfBlock:
+	 statements += Action
+	| '{' statements += Action+ '}';
+
+Equality returns Expression:
+	Comparison ({Equality.left = current} op = ("==" | "!=") right=Comparison)*;
+	
+Comparison returns Expression:
+	PlusOrMinus ({Comparison.left = current} op = (">=" | "<=" | ">" | "<") right = PlusOrMinus)*;
+
+PlusOrMinus returns Expression:
+	MulOrDiv (({Plus.left = current} '+' | {Minus.left = current} '-') right = MulOrDiv)*;
+	
+MulOrDiv returns Expression:
+	Primary ({MulOrDiv.left = current} op = ('*' | '/') right =Primary)*;
+
+Primary returns Expression:
+	'(' Expression ')' |
+	{Not} "!" expression = Primary |
+	Atomic;
+		
+Atomic returns Expression:
+	{IntConstant} value = INT |
+	{StringConstant} value = STRING |
+	{BoolConstant} value = ('true' | 'false') |
+	{VariableRef} variable = [Variable];

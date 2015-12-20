@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.xtext.example.iotdsl/src-gen" editDirectory="/org.eclipse.xtext.example.iotdsl.edit/src"
+    editorDirectory="/org.eclipse.xtext.example.iotdsl.editor/src" modelPluginID="org.eclipse.xtext.example.iotdsl"
+    forceOverwrite="true" modelName="Iotdsl" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="6.0" copyrightFields="false" editPluginID="org.eclipse.xtext.example.iotdsl.edit"
+    editorPluginID="org.eclipse.xtext.example.iotdsl.editor" runtimeVersion="2.10">
+  <genPackages prefix="Iotdsl" basePackage="org.xtext.example.mydsl" disposableProviderFactory="true"
+      fileExtensions="iotdsl" ecorePackage="Iotdsl.ecore#/">
+    <genClasses ecoreClass="Iotdsl.ecore#//Iot">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Iotdsl.ecore#//Iot/devices"/>
+    </genClasses>
+    <genClasses ecoreClass="Iotdsl.ecore#//Device">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Iotdsl.ecore#//Device/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Iotdsl.ecore#//Device/superType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Iotdsl.ecore#//Device/attributes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Iotdsl.ecore#//Device/states"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Iotdsl.ecore#//Device/events"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Iotdsl.ecore#//Device/transitions"/>
+    </genClasses>
+    <genClasses ecoreClass="Iotdsl.ecore#//Attribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Iotdsl.ecore#//Attribute/typeName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Iotdsl.ecore#//Attribute/tag"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Iotdsl.ecore#//Attribute/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Iotdsl.ecore#//Event">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Iotdsl.ecore#//Event/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Iotdsl.ecore#//State">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Iotdsl.ecore#//State/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Iotdsl.ecore#//State/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="Iotdsl.ecore#//Transition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Iotdsl.ecore#//Transition/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Iotdsl.ecore#//Transition/event"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Iotdsl.ecore#//Transition/state"/>
+    </genClasses>
+    <genClasses ecoreClass="Iotdsl.ecore#//Action"/>
+    <genClasses ecoreClass="Iotdsl.ecore#//Variable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Iotdsl.ecore#//Variable/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Iotdsl.ecore#//Variable/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="Iotdsl.ecore#//Expression"/>
+    <genClasses ecoreClass="Iotdsl.ecore#//IfStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Iotdsl.ecore#//IfStatement/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Iotdsl.ecore#//IfStatement/thenBlock"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Iotdsl.ecore#//IfStatement/elseBlock"/>
+    </genClasses>
+    <genClasses ecoreClass="Iotdsl.ecore#//IfBlock">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Iotdsl.ecore#//IfBlock/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="Iotdsl.ecore#//Or">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Iotdsl.ecore#//Or/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Iotdsl.ecore#//Or/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Iotdsl.ecore#//And">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Iotdsl.ecore#//And/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Iotdsl.ecore#//And/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Iotdsl.ecore#//Equality">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Iotdsl.ecore#//Equality/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Iotdsl.ecore#//Equality/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Iotdsl.ecore#//Equality/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Iotdsl.ecore#//Comparison">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Iotdsl.ecore#//Comparison/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Iotdsl.ecore#//Comparison/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Iotdsl.ecore#//Comparison/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Iotdsl.ecore#//Plus">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Iotdsl.ecore#//Plus/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Iotdsl.ecore#//Plus/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Iotdsl.ecore#//Minus">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Iotdsl.ecore#//Minus/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Iotdsl.ecore#//Minus/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Iotdsl.ecore#//MulOrDiv">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Iotdsl.ecore#//MulOrDiv/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Iotdsl.ecore#//MulOrDiv/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Iotdsl.ecore#//MulOrDiv/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Iotdsl.ecore#//Not">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Iotdsl.ecore#//Not/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="Iotdsl.ecore#//IntConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Iotdsl.ecore#//IntConstant/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Iotdsl.ecore#//StringConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Iotdsl.ecore#//StringConstant/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Iotdsl.ecore#//BoolConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Iotdsl.ecore#//BoolConstant/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Iotdsl.ecore#//VariableRef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Iotdsl.ecore#//VariableRef/variable"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
