@@ -1,25 +1,25 @@
-# Titulo del DSL
+ï»¿# IoT DSL (Internet of Things Domain Specific Language)
 
 ### Objetivo
-El objetivo de este trabajo práctico es presentar la implementación de diferentes herramientas disponibles para el desarrollo de lenguajes específicos de dominio (DSL), junto con la creación de un DSL propio que permita implementar funciones propias de los dispositivos que conforman el Internet de las Cosas (IoT - Internet of Things).
+El objetivo de este trabajo prÃ¡ctico es presentar la implementaciÃ³n de diferentes herramientas disponibles para el desarrollo de lenguajes especÃ­ficos de dominio (DSL), junto con la creaciÃ³n de un DSL propio que permita implementar funciones propias de los dispositivos que conforman el Internet de las Cosas (IoT - Internet of Things).
 
-Los DSL se desarrollan para proveer una solución a un problema específico, o bien para facilitar el uso de ciertas tecnologías. En este caso, el DSL desarrollado se hizo con el manejo del internet de las cosas en mente, siendo naturales a éste lenguaje la funcionalidad a través de eventos y transiciones de estado común a los mensajes que se envían los dispositivos pertenecientes a este aspecto de la tecnología.
+Los DSL se desarrollan para proveer una soluciÃ³n a un problema especÃ­fico, o bien para facilitar el uso de ciertas tecnologÃ­as. En este caso, el DSL desarrollado se hizo con el manejo del internet de las cosas en mente, siendo naturales a Ã©ste lenguaje la funcionalidad a travÃ©s de eventos y transiciones de estado comÃºn a los mensajes que se envÃ­an los dispositivos pertenecientes a este aspecto de la tecnologÃ­a.
 
 Las herramientas utilizadas son las siguientes:
-Una de ellas es **ANTLR** que facilita la implementación de un parser y analizador lexicográfico. ANTLR es el framework que utiliza la **XText**, el cual es otro framework que utiliza ANTLR, el cual facilita el diseño por medio de expresiones regulares y funcionalidades propias de éste para poder crear el DSL. Además, incluye un lenguaje propio de alto nivel que ameniza la generación de código que ocurre al compilar el lenguaje IoT diseñado.
+Una de ellas es **ANTLR** que facilita la implementaciÃ³n de un parser y analizador lexicogrÃ¡fico. ANTLR es el framework que utiliza la **XText**, el cual es otro framework que utiliza ANTLR, el cual facilita el diseÃ±o por medio de expresiones regulares y funcionalidades propias de Ã©ste para poder crear el DSL. AdemÃ¡s, incluye un lenguaje propio de alto nivel que ameniza la generaciÃ³n de cÃ³digo que ocurre al compilar el lenguaje IoT diseÃ±ado.
 
 ### Alcance
-El DSL implementa las funciones de los lenguajes de propósito general, sin embargo viene con una base creada con el comportamiento de los dispositivos pertenecientes a Internet of Things, siendo éstos:
+El DSL implementa las funciones de los lenguajes de propÃ³sito general, sin embargo viene con una base creada con el comportamiento de los dispositivos pertenecientes a Internet of Things, siendo Ã©stos:
 
-- Declaración de Estados, Eventos y Transiciones.
+- DeclaraciÃ³n de Estados, Eventos y Transiciones.
 
-Los cuales de por sí ya están vinculados, pues los eventos generan transiciones entre los estados.
+Los cuales de por sÃ­ ya estÃ¡n vinculados, pues los eventos generan transiciones entre los estados.
 
-Además, están disponibles las funcionalidades de:
+AdemÃ¡s, estÃ¡n disponibles las funcionalidades de:
 
-- Declaración de Variables sin tipificar.
+- DeclaraciÃ³n de Variables sin tipificar.
 - Estructuras de Control de flujo If.
-- Expresiones aritméticas naturales cumplientes con las propiedades asociativas, conmutativas y la prioridad de los signos (*,/,+,-) acorde a la naturaleza de la expresión dada.
+- Expresiones aritmÃ©ticas naturales cumplientes con las propiedades asociativas, conmutativas y la prioridad de los signos (*,/,+,-) acorde a la naturaleza de la expresiÃ³n dada.
 - Herencia.
 
 ### Caracteristicas
@@ -153,23 +153,23 @@ class IotdslGenerator implements IGenerator {
 	{
 		'''
 		package devices;
-		import devices.«device.name»SP.states.*;	
-		public class «device.name» «IF device.superType != null» extends 
-			«device.superType.name» «ENDIF» 
+		import devices.Â«device.nameÂ»SP.states.*;	
+		public class Â«device.nameÂ» Â«IF device.superType != nullÂ» extends 
+			Â«device.superType.nameÂ» Â«ENDIFÂ» 
 		{
-			private final static String deviceTag = "«device.attributes.tag»";
-			public «device.name»Int actualState;
+			private final static String deviceTag = "Â«device.attributes.tagÂ»";
+			public Â«device.nameÂ»Int actualState;
 			private enum Event
 			{
-				«IF device.events.size() > 1»
-					«FOR i: 1..device.events.size() - 1»
-						«device.events.get(i-1).name»,
-					«ENDFOR»
-					«device.events.last().name»
-				«ENDIF»
+				Â«IF device.events.size() > 1Â»
+					Â«FOR i: 1..device.events.size() - 1Â»
+						Â«device.events.get(i-1).nameÂ»,
+					Â«ENDFORÂ»
+					Â«device.events.last().nameÂ»
+				Â«ENDIFÂ»
 			}
 			
-			public void setState(«device.name»Int state)
+			public void setState(Â«device.nameÂ»Int state)
 			{
 				this.actualState = state;
 			}
@@ -178,11 +178,11 @@ class IotdslGenerator implements IGenerator {
 			public void run(Event e)
 			{
 				switch(e){
-				«FOR tra : device.transitions»
-					case «tra.event.name»:
-						this.setState(new «tra.state.name»());
+				Â«FOR tra : device.transitionsÂ»
+					case Â«tra.event.nameÂ»:
+						this.setState(new Â«tra.state.nameÂ»());
 					break;
-				«ENDFOR»
+				Â«ENDFORÂ»
 				}
 			}
 		}
@@ -193,26 +193,26 @@ class IotdslGenerator implements IGenerator {
 	def compileState(State state, Device device)
 	{
 		'''
-		package devices.«device.name»SP.states;
+		package devices.Â«device.nameÂ»SP.states;
 		
-		public class «state.name» implements «device.name»Int
+		public class Â«state.nameÂ» implements Â«device.nameÂ»Int
 		{
-			public «state.name»(){}
+			public Â«state.nameÂ»(){}
 			public void handle()
 			{
-				«FOR element : state.elements»
-					«IF element instanceof Variable»
-						«IF element.expression instanceof IntConstant»
-							int «element.name» = «(element.expression as IntConstant).value»;
-						«ENDIF»
-						«IF element.expression instanceof StringConstant»
-							String «element.name» = "«(element.expression as StringConstant).value»";
-						«ENDIF»
-						«IF element.expression instanceof BoolConstant»
-							boolean «element.name» = «(element.expression as BoolConstant).value»;
-						«ENDIF»
-					«ENDIF»
-				«ENDFOR»
+				Â«FOR element : state.elementsÂ»
+					Â«IF element instanceof VariableÂ»
+						Â«IF element.expression instanceof IntConstantÂ»
+							int Â«element.nameÂ» = Â«(element.expression as IntConstant).valueÂ»;
+						Â«ENDIFÂ»
+						Â«IF element.expression instanceof StringConstantÂ»
+							String Â«element.nameÂ» = "Â«(element.expression as StringConstant).valueÂ»";
+						Â«ENDIFÂ»
+						Â«IF element.expression instanceof BoolConstantÂ»
+							boolean Â«element.nameÂ» = Â«(element.expression as BoolConstant).valueÂ»;
+						Â«ENDIFÂ»
+					Â«ENDIFÂ»
+				Â«ENDFORÂ»
 			}
 		}
 		'''
@@ -221,9 +221,9 @@ class IotdslGenerator implements IGenerator {
 	def compileInterface(Device device)
 	{
 		'''
-		package devices.«device.name»SP.states;
+		package devices.Â«device.nameÂ»SP.states;
 		
-		public interface «device.name»Int
+		public interface Â«device.nameÂ»Int
 		{
 			public abstract void handle();
 		}
