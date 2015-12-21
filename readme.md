@@ -333,8 +333,8 @@ end
 
 ### Tecnologias
 Software o literatura que da soporte al proyecto:
-* [Xtext] - Framework para crear DSL
-* [ANTLR] - Generador de Parsers y Lexers
+- [Xtext] - Framework para crear DSL
+- [ANTLR] - Generador de Parsers y Lexers
 
 
 [Xtext]:https://eclipse.org/Xtext/
