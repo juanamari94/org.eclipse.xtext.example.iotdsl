@@ -23,7 +23,9 @@ Además, están disponibles las funcionalidades de:
 - Herencia.
 
 ### Caracteristicas
-Se debera explicar que se trata de un lenguaje de alto nivel para interactuar con dispositivos con API Java (maximo 200 palabras).
+IoT DSL consiste en un lenguaje de auto nivel con declaración de variables y estructuras de flujo if, cuyas variables no están tipificadas. Permite la definición de estados, eventos y transiciones dadas por los eventos entre estados, lo cual describe la naturaleza del comportamiento de los dispositivo pertenecientes al internet de las cosas.
+
+Es relevante mencionar que los dispositivos deben contar con una API Java para poder interactuar con el lenguaje diseñado.
 
 ### Gramatica
 ```sh
