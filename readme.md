@@ -1,4 +1,4 @@
-﻿# IoT DSL (Internet of Things Domain Specific Language)
+﻿# IoT DSL
 
 ### Objetivo
 El objetivo de este trabajo práctico es presentar la implementación de diferentes herramientas disponibles para el desarrollo de lenguajes específicos de dominio (DSL), junto con la creación de un DSL propio que permita implementar funciones propias de los dispositivos que conforman el Internet de las Cosas (IoT - Internet of Things).
