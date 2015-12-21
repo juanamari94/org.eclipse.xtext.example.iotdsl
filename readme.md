@@ -6,7 +6,7 @@ El objetivo de este trabajo práctico es presentar la implementación de diferente
 Los DSL se desarrollan para proveer una solución a un problema específico, o bien para facilitar el uso de ciertas tecnologías. En este caso, el DSL desarrollado se hizo con el manejo del internet de las cosas en mente, siendo naturales a éste lenguaje la funcionalidad a través de eventos y transiciones de estado común a los mensajes que se envían los dispositivos pertenecientes a este aspecto de la tecnología.
 
 Las herramientas utilizadas son las siguientes:
-Una de ellas es *ANTLR* que facilita la implementación de un parser y analizador lexicográfico. ANTLR es el framework que utiliza la *XText*, el cual es otro framework que utiliza ANTLR, el cual facilita el diseño por medio de expresiones regulares y funcionalidades propias de éste para poder crear el DSL. Además, incluye un lenguaje propio de alto nivel que ameniza la generación de código que ocurre al compilar el lenguaje IoT diseñado.
+Una de ellas es **ANTLR** que facilita la implementación de un parser y analizador lexicográfico. ANTLR es el framework que utiliza la **XText**, el cual es otro framework que utiliza ANTLR, el cual facilita el diseño por medio de expresiones regulares y funcionalidades propias de éste para poder crear el DSL. Además, incluye un lenguaje propio de alto nivel que ameniza la generación de código que ocurre al compilar el lenguaje IoT diseñado.
 
 ### Alcance
 El DSL implementa las funciones de los lenguajes de propósito general, sin embargo viene con una base creada con el comportamiento de los dispositivos pertenecientes a Internet of Things, siendo éstos:
